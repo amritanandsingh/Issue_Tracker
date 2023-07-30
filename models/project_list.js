@@ -9,7 +9,7 @@ const project_Schema = new mongoose.Schema({
     description:{
         type: String
     },
-    Author:{
+    author:{
         type: String,
         required : true
     }

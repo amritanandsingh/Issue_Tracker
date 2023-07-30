@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+    <div class="form-container">
+        <div ><a href="/user/<%= name %>">back</a></div>  
+        <h1>Create Issue</h1>
+        
+        <form method="post" action="/bugform">
+            <label for="name">Project Name</label>
+            <input type="text" id="name" name="name" value="<%= name %>" readonly required>
+
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" rows="4" required></textarea>
+
+            <label for="labels">Labels</label>
+            <input type="text" id="labels" name="labels" placeholder="Enter labels (separated by commas)">
+
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author" required>
+
+            
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
