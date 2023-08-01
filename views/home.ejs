@@ -15,7 +15,7 @@
             <!-- You can add more navigation items here -->
         </ul>
     </nav>
-
+ 
     <main>
         <h3>Create Project</h3>
         <form method="POST" action="/creat_project"> 
@@ -32,17 +32,17 @@
             <% for (let project of project_list) { %>
                 <li>
                     <a href="user/<%= project.name %>">
-                        <p><%= project.name %></p>
+                        <p> <b>Project Name :</b>  <%= project.name %></p>
                     </a> 
-                    <p><%= project.description %></p>
-                    <p><%= project.author %></p>
+                    <p><b> Project Description :</b> <%= project.description %></p>
+                    <p><b>Project Author : </b><%= project.author %></p>
                 </li>
             <% } %>
         </ul>   
     </div>
 
     <footer>
-        <p>&copy; 2023 Your Company. All rights reserved.</p>
+        <p> All rights reserved.</p>
     </footer>
 </body>
 </html>

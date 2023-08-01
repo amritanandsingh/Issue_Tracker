@@ -19,16 +19,70 @@
             <label for="description">Description</label>
             <textarea id="description" name="description" rows="4" required></textarea>
 
-            <label for="labels">Labels</label>
-            <input type="text" id="labels" name="labels" placeholder="Enter labels (separated by commas)">
+            <label>Labels</label><br>
+            <label>
+                <input type="checkbox" name="labels" value="HIGH"> HIGH
+            </label><br>
+            <label>
+                <input type="checkbox" name="labels" value="MEDIUM"> MEDIUM
+            </label><br>
+            <label>
+                <input type="checkbox" name="labels" value="LOW"> LOW
+            </label><br>
+
+            <div id="customLabelsContainer">
+                <!-- Custom labels will be added dynamically here -->
+            </div>
+
+            <input type="text" id="customLabel" placeholder="Enter custom label">
+            <button type="button" onclick="addCustomLabel()">Add Custom Label</button><br><br>
+
 
             <label for="author">Author</label>
             <input type="text" id="author" name="author" required>
 
-            
-
             <button type="submit">Submit</button>
         </form>
     </div>
+    <script>
+        function addCustomLabel() {
+            const customLabelInput = document.getElementById('customLabel');
+            const customLabel = customLabelInput.value.trim();
+
+            if (customLabel !== '') {
+                const customLabelsContainer = document.getElementById('customLabelsContainer');
+
+                // Create a new label element with an associated checkbox
+                const labelElement = document.createElement('label');
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.name = 'labels';
+                checkbox.value = customLabel;
+
+                labelElement.appendChild(checkbox);
+                labelElement.appendChild(document.createTextNode(' ' + customLabel));
+
+                customLabelsContainer.appendChild(labelElement);
+
+                customLabelInput.value = '';
+            }
+        }
+
+        function prepareLabels() {
+            const labelsSelect = document.getElementById('labelFilter');
+            const selectedLabels = Array.from(labelsSelect.selectedOptions).map(option => option.value);
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][name="labels"]:checked');
+            const customLabels = Array.from(checkboxes).map(checkbox => checkbox.value);
+
+            // Combine both predefined and custom labels into a single array
+            const allLabels = selectedLabels.concat(customLabels);
+
+            // Set the value of the labels field to the list of selected labels
+            document.querySelector('input[name="labels"]').value = JSON.stringify(allLabels);
+        }
+
+        document.getElementById('labelFilter').addEventListener('change', prepareLabels);
+        document.getElementById('author').addEventListener('input', prepareLabels);
+    </script>
 </body>
 </html>

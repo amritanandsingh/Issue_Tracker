@@ -6,5 +6,6 @@ router.post('/creat_project',homeController.creat_project);
 router.get('/user/:id',homeController.bug_home);
 router.get('/creatissue',homeController.form);
 router.post('/bugform',homeController.bugform);
+//router.get('/search',homeController.search);
 
-module.exports = router;
+module.exports = router; 

@@ -3,17 +3,19 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
 }
 
 header {
-    background-color: #333;
+    background-color: #00bcd4;
     color: #fff;
     text-align: center;
     padding: 10px;
 }
 
 nav {
-    background-color: #444;
+    background-color: #ff5722;
     color: #fff;
     display: flex;
     justify-content: center;
@@ -29,16 +31,26 @@ nav ul {
 nav ul li {
     display: inline;
     margin: 0 10px;
-    color: #fb4d4d;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #333;
 }
 
 main {
     padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 section {
@@ -46,8 +58,44 @@ section {
 }
 
 footer {
-    background-color: #555;
+    background-color: #4caf50;
     color: #fff;
     text-align: center;
     padding: 10px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Add some styles to the project list */
+main ul {
+    list-style: none;
+    padding: 0;
+}
+
+main ul li {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+
+main ul li p {
+    margin: 5px 0;
+}
+
+/* Center the project list */
+main div {
+    display: flex;
+    justify-content: center;
 }

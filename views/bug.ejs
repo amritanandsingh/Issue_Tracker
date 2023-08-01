@@ -12,13 +12,40 @@
     <div> 
         <h3><a href="/creatissue?projectName=<%= encodeURIComponent(project.name) %>">Create Issue</a></h3>
     </div>
+   
+    
+    <h1>Searching Issues</h1>
+    <div>
+        <label for="label">Filter by lable:</label>
+        <input type="text" id="label">
+    </div>
+    <div>
+        <label for="author">Filter by Author:</label>
+        <input type="text" id="author">
+    </div>
+    <div>
+        <label for="search">Search by Title or Description:</label>
+        <input type="text" id="search">
+        <button id="searchBtn">Search</button>
+    </div>
+
+    <ul id="issueList">
+        <!-- Add bugs dynamically using JavaScript -->
+    </ul>
+
+   
+
+
+
     <div class="project-details">
         <h1>Project details</h1>
         <p><%= project.name %></p>
         <p><%= project.description %></p>
         <p><%= project.author %></p>
+        
         <h2>Issue List</h2>
         <% for (let i = 0; i < project.bug.length; i++) { %>
+            
             <p>Title : <%= project.bug[i].title %></p>
             <p>Description : <%= project.bug[i].description %></p>
             <p>Labels : <%= project.bug[i].labels %></p>
@@ -30,5 +57,72 @@
     <footer>
         <p>&copy; 2023 Your Company. All rights reserved.</p>
     </footer>
+   
+        
+        <!-- ... Your existing HTML code ... -->
+
+    <script>
+        //console.log(<%= JSON.stringify(project.bug) %>);
+        console.log(<%= project.bug%>);
+        
+        
+        // const bugs =[
+        //     { title: "SPA", description: "need to make it SPA", labels: "REACT JS", author: "Prince" },
+        //     { title: "DB", description: "ADD DB", labels: "mongoDB", author: "Vishal" }
+        //     // Add more bug objects here
+        // ];
+
+
+        // function filterBugs() {
+        //     const labelValue = document.getElementById("label").value.toLowerCase();
+        //     const authorValue = document.getElementById("author").value.toLowerCase();
+        //     const searchValue = document.getElementById("search").value.toLowerCase();
+
+        //     const filteredBugs = bugs.filter(bug => {
+        //         return (
+        //             bug.labels.toLowerCase().includes(labelValue) &&
+        //             bug.author.toLowerCase().includes(authorValue) &&
+        //             (bug.title.toLowerCase().includes(searchValue) ||
+        //             bug.description.toLowerCase().includes(searchValue))
+        //         );
+        //     });
+
+        //     displayBugs(filteredBugs);
+        // }
+
+        // function displayBugs(bugs) {
+        //     const issueList = document.getElementById("issueList");
+        //     issueList.innerHTML = "";
+
+        //     if (bugs.length === 0) {
+        //         const noResultsItem = document.createElement("li");
+        //         noResultsItem.textContent = "No matching bugs found.";
+        //         issueList.appendChild(noResultsItem);
+        //         return;
+        //     }
+
+        //     bugs.forEach(bug => {
+        //         const bugItem = document.createElement("li");
+        //         bugItem.innerHTML = `
+        //             <p>Title: ${bug.title}</p>
+        //             <p>Description: ${bug.description}</p>
+        //             <p>Labels: ${bug.labels}</p>
+        //             <p>Author: ${bug.author}</p>
+        //         `;
+        //         issueList.appendChild(bugItem);
+        //     });
+        // }
+
+        // const searchButton = document.getElementById("searchBtn");
+        // searchButton.addEventListener("click", filterBugs);
+        // labelInput.addEventListener("input", filterBugs);
+        // authorInput.addEventListener("input", filterBugs);
+        // searchInput.addEventListener("input", filterBugs);
+
+        // // Initial display of all bugs when the page loads
+        // filterBugs();
+    </script>
+
+    
 </body>
 </html>
