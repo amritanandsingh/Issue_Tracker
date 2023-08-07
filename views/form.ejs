@@ -6,10 +6,10 @@
 </head>
 <body>
     <div class="form-container">
-        <div ><a href="/user/<%= name %>">back</a></div>  
+        <div ><a href="/project/<%= name %>">back</a></div>  
         <h1>Create Issue</h1>
         
-        <form method="post" action="/bugform">
+        <form method="post" action="/project/id/formsubmission">
             <label for="name">Project Name</label>
             <input type="text" id="name" name="name" value="<%= name %>" readonly required>
 

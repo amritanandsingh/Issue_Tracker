@@ -1,4 +1,4 @@
-let projectModel = [{name:"Issue_Tracker",description:"i have in use to tack bug in project",author:"Amrit" , bug : [{title:"SPA",description:"need to make it SPA",labels:"REACT JS",author:"Prince"},{title:"DB",description:"ADD DB",labels:"mongoDB",author:"Vishal"}] }];
+let projectModel = [{name:"Issue_Tracker",description:"i have in use to tack bug in project",author:"Amrit" , bug : [{title:"SPA",description:"need to make it SPA",labels:"REACT JS",author:"Prince"},{title:"DB",description:"ADD DB",labels:"mongoDB,low",author:"Vishal"}] }];
  
 module.exports.home =(req,res)=>{
     return res.render('home',{
@@ -23,7 +23,8 @@ module.exports.bug_home = (req, res) => {
       return res.status(404).send('Project not found..');
     }
     //console.log(project);
-    return res.render('bug', { project });
+    let result=[];
+    return res.render('bug', { project ,result:result});
   };
 
 module.exports.form = (req,res)=>
@@ -53,12 +54,61 @@ module.exports.bugform = (req,res) =>
             console.log(`Project  not found.`);
           }
           
-  
+          let result=[];
   const project = projectModel.find((i) => i.name === name);
-  return res.render('bug', { project });
+  return res.render('bug', { project , result});
 }
 
-// module.exports.search = (req,res)=>{
-  
-//   return res.render('bug',{ ,object:{}});
-// }
+module.exports.search = (req, res) => {
+  const id = req.params.id;
+  const project = projectModel.find((i) => i.name === id);
+
+  const {
+    label,
+    author,
+    search
+  } = req.body;
+  let haveLabel = label.split(",");
+  let result = [];
+
+  for (let i = 0; i < project.bug.length; i++) {
+    const bug = project.bug[i];
+
+    let lab = bug.labels;
+    lab = lab.split(",");
+
+    let a = 1,
+      b = 0,
+      c = 1,
+      d = 1;
+
+    if (author !== "" && author !== bug.author) {
+      a = 0;
+    }
+
+    for (let j = 0; j < lab.length; j++) {
+      if (lab[j] === label) {
+        b = 1;
+        break;
+      }
+    }
+
+    if (search !== bug.title) {
+      c = 0;
+    }
+
+    if (!bug.description.includes(search)) {
+      d = 0;
+    }
+
+    if (a === 1 || b === 1 || c === 1 || d === 1) {
+      result.push(bug);
+    }
+  }
+
+  console.log("result is ", result);
+  return res.render('bug', {
+    project,
+    result: result
+  });
+}

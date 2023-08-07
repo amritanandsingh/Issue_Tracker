@@ -18,6 +18,72 @@ h1 {
     margin-bottom: 1rem;
 }
 
+.nav-links {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.nav-links a {
+    display: inline-block;
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-right: 10px;
+}
+
+.nav-links a:hover {
+    background-color: #007f8d;
+}
+
+form {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+form label {
+    margin-right: 10px;
+}
+
+form input[type="text"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+form button {
+    display: inline-block;
+    background-color: #00bcd4;
+    color: #fff;
+    padding: 5px 10px;
+    text-decoration: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #007f8d;
+}
+
+.result-section {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 2rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-top: 2rem;
+}
+
+.issue-item {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
 .project-details {
     max-width: 600px;
     margin: 0 auto;
@@ -28,50 +94,13 @@ h1 {
     margin-top: 2rem;
 }
 
+.project-details h2 {
+    margin-top: 0;
+}
+
 .project-details p {
     margin: 0;
     padding: 0.5rem 0;
-    border-bottom: 1px solid #ccc;
-}
-
-/* Style the "Back" button */
-.project-details div:nth-child(1) {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.project-details div:nth-child(1) a {
-    display: inline-block;
-    background-color: #00bcd4;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.project-details div:nth-child(1) a:hover {
-    background-color: #007f8d;
-}
-
-/* Style the "Create Issue" button */
-.project-details div:nth-child(2) {
-    text-align: center;
-    margin-top: 1rem;
-}
-
-.project-details div:nth-child(2) h3 a {
-    display: inline-block;
-    background-color: #00bcd4;
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-
-.project-details div:nth-child(2) h3 a:hover {
-    background-color: #007f8d;
 }
 
 footer {
