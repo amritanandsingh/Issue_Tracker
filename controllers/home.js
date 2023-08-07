@@ -1,12 +1,12 @@
 let projectModel = [{name:"Issue_Tracker",description:"i have in use to tack bug in project",author:"Amrit" , bug : [{title:"SPA",description:"need to make it SPA",labels:"REACT JS",author:"Prince"},{title:"DB",description:"ADD DB",labels:"mongoDB,low",author:"Vishal"}] }];
  
-module.exports.home =(req,res)=>{
+module.exports.home =(req,res)=>{    // home page and display list of all project.
     return res.render('home',{
         project_list:projectModel
     });
 }
-module.exports.creat_project = (req,res) =>
-{
+module.exports.creat_project = (req,res) => // for creating new project.
+{ 
     
         //console.log(req.body);
         const {name , description , author} = req.body;
@@ -14,7 +14,7 @@ module.exports.creat_project = (req,res) =>
         return res.redirect("back");
 }
 
-module.exports.bug_home = (req, res) => {
+module.exports.bug_home = (req, res) => {    // this is use to load project bug page.
     const id = req.params.id;
     const project = projectModel.find((i) => i.name === id);
     //console.log(id);
@@ -27,14 +27,14 @@ module.exports.bug_home = (req, res) => {
     return res.render('bug', { project ,result:result});
   };
 
-module.exports.form = (req,res)=>
+module.exports.form = (req,res)=>  // for render form of bug .
 {
   const name = req.query.projectName;
   //console.log(name);
   return res.render('form',{title:"form" , name});
 }
 
-module.exports.bugform = (req,res) =>
+module.exports.bugform = (req,res) =>   // this is use to take form bug data and add to the project bugs list.
 {
   
           //console.log(req.body);
@@ -59,10 +59,10 @@ module.exports.bugform = (req,res) =>
   return res.render('bug', { project , result});
 }
 
-module.exports.search = (req, res) => {
+module.exports.search = (req, res) => {       // for searching bugs in project's bug list.
   const id = req.params.id;
   const project = projectModel.find((i) => i.name === id);
-
+   // console.log(req.body);
   const {
     label,
     author,
